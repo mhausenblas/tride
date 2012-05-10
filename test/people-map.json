@@ -1,0 +1,15 @@
+{
+	"input" : 
+		[
+			{ "name" : "people", "src" : "people.csv" }
+		],
+	"map" :
+		{
+		"people" : 
+			{
+			"base" : "http://localhost:8000/",
+			"output" : "../out/",
+			"with" : { "pid" : "people.ID" , "fname" : "people.first-name", "lname" : "people.last-name" }
+			}
+		}
+}

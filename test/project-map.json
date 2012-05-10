@@ -1,0 +1,23 @@
+{
+	"input" : 
+		[
+			{ "name" : "people", "src" : "people.csv" },
+			{ "name" : "project", "src" : "project.csv" },
+			{ "name" : "p2p", "src" : "people-project.csv" }
+		],
+	"map" :
+		{
+		"people" : 
+			{
+			"base" : "http://localhost:8000/people/",
+			"output" : "../out/people/",
+			"with" : { "pid" : "people.ID" , "fname" : "people.first-name", "lname" : "people.last-name" }
+			},
+		"project" : 
+			{
+			"base" : "http://localhost:8000/project/",
+			"output" : "../out/project/",
+			"with" : { "proid" : "project.ID" , "title" : "project.project-title", "acronym" : "project.project-acronym" , "participant" : "where:p2p.project-id=project.ID link:p2p.person-id to:people.ID" }
+			}
+		}
+}

@@ -1,0 +1,22 @@
+{
+	"input" : 
+		[
+			{ "name" : "people", "src" : "people.csv" },
+			{ "name" : "group", "src" : "group.csv" }
+		],
+	"map" :
+		{
+		"people" : 
+			{
+			"base" : "http://localhost:8000/people/",
+			"output" : "../out/people/",
+			"with" : { "fname" : "people.first-name", "lname" : "people.last-name", "member" : "link:people.group-id to:group.ID" }
+			},
+		"group" : 
+			{
+			"base" : "http://localhost:8000/group/",
+			"output" : "../out/group/",
+			"with" : { "title" : "group.title", "homepage" : "group.homepage", "members" : "where:people.group-id=group.ID link:group.ID to:people.ID" }
+			}
+		}
+}
